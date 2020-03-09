@@ -1,3 +1,34 @@
+# La Barraca
+
+## stack
+JAM
+
+## Main components
+### cms
+sanity.io
+### app
+* gatsby
+* tailwind css
+### DB
+Using a DBaaS, like FaunaDB
+### productions-service
+This is an API / netlify function to connect the backoffice and app to the DB
+### email-service
+This is an API / netlify function that sends email. Actual sending happens via mailgun / sendgrid / mailchimp...
+Either scheduled daily (reminder mails, feedback mails)
+Either instantiated by a request (confirmation mails)
+
+## Content flow
+### pre-built content
+The site content with info pages and content about the seasons and productions, and shows (shows = instances of productions)
+### live updated content
+Extra info about shows (like RSVP's) will be fetched on-the-fly using the API.
+When querying the API for extra info for a specific show, the API either creates a db entry for that show if it doesn't exist (and returns an initial extra info object), or it will return what it finds in the db.
+
+## Hosting
+Netlify
+
+original README.md:
 # sapper-template
 
 The default [Sapper](https://github.com/sveltejs/sapper) template, available for Rollup and webpack.
