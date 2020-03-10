@@ -10,8 +10,8 @@
           endYear,
           "productions": productions[]{
             title,
-            "mainImageUrl": mainImage{asset->{url}}.asset.url,
-            "imageUrls": images[]{asset->{url}}.asset.url
+            "mainImageSrc": mainImage{asset->{url}}.asset.url,
+            "imageSrcs": images[]{asset->{url}}.asset.url
           }
         }`);
       return {
@@ -24,12 +24,13 @@
 </script>
 
 <script>
-  import Season from "../components/Season.svelte";
+  import ProductionCarousel from "../components/ProductionCarousel/index.svelte";
   export let season;
+  const { productions } = season;
 </script>
 
 <svelte:head>
   <title>La Barraca theater-op-schoot</title>
 </svelte:head>
 <h1 class="font-bold text-red-900">La Barraca theater-op-schoot</h1>
-<Season {season} />
+<ProductionCarousel {productions} />
