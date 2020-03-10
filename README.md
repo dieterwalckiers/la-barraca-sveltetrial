@@ -7,7 +7,7 @@ JAM
 ### cms
 sanity.io
 ### app
-* gatsby
+* svelte/sapper
 * tailwind css
 ### DB
 Using a DBaaS, like FaunaDB
