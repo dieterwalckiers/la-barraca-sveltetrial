@@ -1,18 +1,8 @@
 <script>
   import { onMount } from "svelte";
-  import { viewportWidth } from "../stores";
+  import { viewportWidth } from "../stores/rwd";
   // import Nav from '../components/Nav.svelte';
   // export let segment;
-
-  // function syncRwdState() {
-  //   const { innerWidth } = window;
-  //   rwdState.setFromViewportWidth(innerWidth);
-  // }
-
-  // onMount(async () => {
-  //   console.log("setting from", innerWidth);
-  //   syncRwdState();
-  // });
 </script>
 
 <!-- <Nav {segment}/> -->

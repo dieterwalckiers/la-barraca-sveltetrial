@@ -1,5 +1,5 @@
 <script>
-  import { rwdState } from "../../../stores";
+  import { rwdState } from "../../../stores/rwd";
   export let src;
   $: console.log(
     "rendering ProductionImage with src",
