@@ -1,2 +1,2 @@
 import { writable } from "svelte/store";
-export const carouselImgWidth = writable(0);
+export const logoHeight = writable(0);

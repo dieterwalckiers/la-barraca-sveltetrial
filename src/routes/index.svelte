@@ -25,7 +25,6 @@
 
 <script>
   import Production from "../components/Production/index.svelte";
-  import LbLogoBig from "../components/LbLogoBig/index.svelte";
   export let season;
   const { productions } = season;
 </script>
@@ -35,8 +34,7 @@
 </svelte:head>
 
 <div>
-  <LbLogoBig />
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center p-2 lg:p-0">
     <Production production={productions[0]} />
   </div>
 

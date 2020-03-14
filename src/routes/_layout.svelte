@@ -9,7 +9,6 @@
   .siteWrapper {
     max-width: 1200px;
     margin: auto;
-    border: 1px solid fuchsia;
   }
 </style>
 

@@ -1,10 +1,7 @@
 export function rwdStateFromViewportWidth(viewportWidth) {
   console.log("calc for", viewportWidth);
   if (!viewportWidth || isNaN(viewportWidth)) {
-    console.log(
-      `invalid viewportWidth ${viewportWidth}, returning xl (mobile)`
-    );
-    return "xl";
+    return undefined;
   }
   if (viewportWidth < 640) {
     return "xs";

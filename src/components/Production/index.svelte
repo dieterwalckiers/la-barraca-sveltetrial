@@ -5,14 +5,20 @@
   export let production;
   const { mainImageSrc } = production;
 
-  $: carouselWidth = $rwdState === "xs" ? 100 : ($rwdState === "sm" ? 50 : 60);
-  $: summaryWidth = $rwdState === "xs" ?
-    100 :
-    !!carouselWidth ? 100 - carouselWidth : undefined;
-
+  $: carouselWidth = $rwdState === "xs" ? 100 : $rwdState === "sm" ? 50 : 60;
+  $: summaryWidth =
+    $rwdState === "xs"
+      ? 100
+      : !!carouselWidth
+      ? 100 - carouselWidth
+      : undefined;
 </script>
 
-<div class="production w-full sm:flex border border-blue-700">
-  <ProductionCarousel {production} width={carouselWidth} />
-  <ProductionSummary {production} width={summaryWidth} />
+<div class="production w-full sm:flex">
+  <div style={`width: ${carouselWidth}%`}>
+    <ProductionCarousel {production} />
+  </div>
+  <div style={`width: ${summaryWidth}%`}>
+    <ProductionSummary {production} />
+  </div>
 </div>
