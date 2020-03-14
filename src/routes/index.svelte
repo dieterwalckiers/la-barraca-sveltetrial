@@ -24,7 +24,8 @@
 </script>
 
 <script>
-  import ProductionCarousel from "../components/ProductionCarousel/index.svelte";
+  import Production from "../components/Production/index.svelte";
+  import LbLogoBig from "../components/LbLogoBig/index.svelte";
   export let season;
   const { productions } = season;
 </script>
@@ -32,5 +33,11 @@
 <svelte:head>
   <title>La Barraca theater-op-schoot</title>
 </svelte:head>
-<h1 class="font-bold text-red-900">La Barraca theater-op-schoot</h1>
-<ProductionCarousel {productions} />
+
+<div>
+  <LbLogoBig />
+  <div class="flex flex-col items-center">
+    <Production production={productions[0]} />
+  </div>
+
+</div>

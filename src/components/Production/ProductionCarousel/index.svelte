@@ -1,11 +1,11 @@
 <script>
   import ProductionImage from "./ProductionImage.svelte";
-  import ProductionBody from "./ProductionBody.svelte";
+  import LbLogoBig from "../../LbLogoBig/index.svelte";
   export let production;
+  export let width;
   const { mainImageSrc } = production;
 </script>
 
-<div>
+<div class="prodution-carousel" style={`width: ${width}%`}>
   <ProductionImage src={mainImageSrc} />
-  <ProductionBody {production} />
 </div>
