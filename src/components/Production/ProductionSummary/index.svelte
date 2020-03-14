@@ -6,11 +6,20 @@
   $: fillerHeight = $rwdState === "xs" ? 1 : $logoHeight;
 </script>
 
+<style>
+  h1 {
+    font-family: "Montserrat", sans-serif;
+  }
+  p {
+    font-family: Courier, monospace
+  }
+</style>
+
 <div class="production-summary">
   {#if !!fillerHeight}
     <div style={`height: ${fillerHeight}px`} />
-    <div>
-      <h1>{title}</h1>
+    <div class="px-4">
+      <h1 class="uppercase text-5xl tracking-widest text-black">{title}</h1>
       <p>
         4.48 Psychosis is een zinderende gedachtestroom die probeert om de pijn
         en de angst voor het leven te beschrijven maar tegelijk ook het leven
