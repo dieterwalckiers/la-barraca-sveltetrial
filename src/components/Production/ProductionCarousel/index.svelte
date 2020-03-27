@@ -6,7 +6,6 @@
   import ProductionImage from "./ProductionImage.svelte";
   import LbLogoBig from "../LbLogoBig/index.svelte";
   import CarouselNavigation from "./CarouselNavigation/index.svelte";
-  import Carousel from "../../Carousel/index.svelte";
 
   let siema;
   let controller;
