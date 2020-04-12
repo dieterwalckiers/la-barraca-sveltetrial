@@ -8,6 +8,6 @@
 </script>
 
 <div class={`carousel-navigation text-white ${clazz}`} {style}>
-  <Button on:click={toPrev} />
   <Button isRightControl={true} on:click={toNext} />
+  <Button on:click={toPrev} />
 </div>

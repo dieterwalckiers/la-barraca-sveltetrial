@@ -11,14 +11,14 @@
   let controller;
 
   export let production;
-  const { mainImageSrc, imageSrcs } = production;
+  const { mainImageSrc, imageSrcs, vimeoId } = production;
   $: console.log("prod", production);
   $: hasNarrowBorders = ["xs", "sm"].includes($rwdState);
 
   onMount(() => {
     controller = new Siema({
       selector: siema,
-      loop: true,
+      loop: true
     });
     return () => {
       controller.destroy();
@@ -92,8 +92,14 @@
     <CarouselNavigation
       class="absolute"
       style="bottom: -25px; right: -20px"
-      toPrev={(e) => { controller.prev(); e.stopPropagation() }}
-      toNext={(e) => { controller.next(); e.stopPropagation() }} />
+      toPrev={e => {
+        controller.prev();
+        e.stopPropagation();
+      }}
+      toNext={e => {
+        controller.next();
+        e.stopPropagation();
+      }} />
   </div>
 </div>
 

@@ -15,7 +15,7 @@
 </style>
 
 <div
-  class={`color-lb-primary flex items-center justify-center bg-lb-primary hover:bg-lb-primary-lighter cursor-pointer`}
+  class={`color-lb-primary flex items-center justify-center bg-lb-primary hover:bg-lb-primary-lighter cursor-pointer transition-colors duration-300`}
   style={`width: ${buttonSize}px; height: ${buttonSize}px`}
   on:click>
   <label

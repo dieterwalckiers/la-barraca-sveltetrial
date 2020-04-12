@@ -11,7 +11,8 @@
           "productions": productions[]{
             title,
             "mainImageSrc": mainImage{asset->{url}}.asset.url,
-            "imageSrcs": images[]{asset->{url}}.asset.url
+            "imageSrcs": images[]{asset->{url}}.asset.url,
+            performanceCalendar
           }
         }`);
       return {
