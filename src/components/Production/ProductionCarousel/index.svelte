@@ -1,8 +1,10 @@
 <script>
   import Siema from "siema";
+  import Trailer from "./Trailer.svelte";
   import { onMount } from "svelte";
 
   import { rwdState } from "../../../stores/rwd";
+  import { trailerCarouselIndex, requestedCarouselIndex } from "../../../stores/productionDisplayInfo";
   import ProductionImage from "./ProductionImage.svelte";
   import LbLogoBig from "../LbLogoBig/index.svelte";
   import CarouselNavigation from "./CarouselNavigation/index.svelte";
@@ -15,11 +17,32 @@
   $: console.log("prod", production);
   $: hasNarrowBorders = ["xs", "sm"].includes($rwdState);
 
+  $: trailerCarouselIndex.set(vimeoId ? 1 + (imageSrcs || []).length : -1)
+  $: if ($requestedCarouselIndex !== -1) {
+    controller.goTo($requestedCarouselIndex);
+    requestedCarouselIndex.set(-1);
+  }
+
   onMount(() => {
     controller = new Siema({
       selector: siema,
       loop: true
     });
+    try {
+      // hack because css didn't seem to cut it
+      document
+        .getElementsByClassName("carousel")[0]
+        .getElementsByTagName("div")[0].style.display = "flex";
+      document
+        .getElementsByClassName("carousel")[0]
+        .getElementsByTagName("div")[0].style.height = "100%";
+      document
+        .getElementsByClassName("carousel")[0]
+        .getElementsByTagName("div")[0].style.alignItems = "center";
+    } catch (e) {
+      console.error("trailer styling failed. No trailer defined?");
+    }
+
     return () => {
       controller.destroy();
     };
@@ -67,6 +90,11 @@
     justify-content: center;
     align-items: center;
   }
+  .carousel div {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+  }
 </style>
 
 <div class="production-carousel">
@@ -87,6 +115,9 @@
             <ProductionImage src={imageSrc} />
           </div>
         {/each}
+        {#if !!vimeoId}
+          <Trailer {vimeoId} />
+        {/if}
       </div>
     </div>
     <CarouselNavigation
