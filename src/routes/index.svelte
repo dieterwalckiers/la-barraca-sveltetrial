@@ -10,6 +10,7 @@
           endYear,
           "productions": productions[]{
             title,
+            shortDescription,
             "mainImageSrc": mainImage{asset->{url}}.asset.url,
             "imageSrcs": images[]{asset->{url}}.asset.url,
             performanceCalendar,

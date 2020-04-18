@@ -5,7 +5,7 @@
   import { rwdState } from "../../../stores/rwd";
   import { trailerCarouselIndex } from "../../../stores/productionDisplayInfo";
   export let production;
-  const { title, performanceCalendar } = production;
+  const { title, performanceCalendar, shortDescription } = production;
   $: performanceCalendarAvailable =
     performanceCalendar && performanceCalendar.length;
   $: firstPerformance = performanceCalendarAvailable && performanceCalendar[0];
@@ -22,6 +22,12 @@
   .production-summary {
     font-family: Courier, monospace;
   }
+
+  .short-description {
+    white-space: pre-wrap;
+    overflow: auto;
+    max-height: 160px;
+  }
 </style>
 
 <div class="production-summary">
@@ -37,11 +43,8 @@
           from={firstPerformance.date}
           to={lastPerformance.date} />
       {/if}
-      <p>
-        4.48 Psychosis is een zinderende gedachtestroom die probeert om de pijn
-        en de angst voor het leven te beschrijven maar tegelijk ook het leven
-        bezingt, en de wil om te leven omwille van de liefde. Wegens succes
-        hernomen.
+      <p class="short-description">
+        {@html shortDescription}
       </p>
       {#if $trailerCarouselIndex > -1}
         <CallToAction />
