@@ -9,10 +9,16 @@
 </script>
 
 <div class="calltoaction mt-4 ml-6">
-  <div>
-    {@html '&gt;'}
-    <label class="transition-colors hover:text-lb-primary-font cursor-pointer" on:click={goToTrailer}>Bekijk de trailer</label>
-  </div>
+  {#if $trailerCarouselIndex > -1}
+    <div>
+      {@html '&gt;'}
+      <label
+        class="transition-colors hover:text-lb-primary-font cursor-pointer"
+        on:click={goToTrailer}>
+        Bekijk de trailer
+      </label>
+    </div>
+  {/if}
   <div>
     {@html '&gt;'}
     <label>Lees meer</label>

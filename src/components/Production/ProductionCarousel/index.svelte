@@ -4,6 +4,7 @@
   import { onMount } from "svelte";
 
   import { rwdState } from "../../../stores/rwd";
+  import { carouselHeight } from "../../../stores/dims";
   import { trailerCarouselIndex, requestedCarouselIndex } from "../../../stores/productionDisplayInfo";
   import ProductionImage from "./ProductionImage.svelte";
   import LbLogoBig from "../LbLogoBig/index.svelte";
@@ -106,7 +107,7 @@
     <div
       class:border2-narrow={hasNarrowBorders}
       class:border2-wide={!hasNarrowBorders}>
-      <div class="carousel" bind:this={siema}>
+      <div class="carousel" bind:this={siema} bind:clientHeight={$carouselHeight}>
         <div>
           <ProductionImage src={mainImageSrc} />
         </div>
