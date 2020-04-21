@@ -1,3 +1,8 @@
+<script>
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
+</script>
+
 <style>
   .button {
     background-image: linear-gradient(
@@ -26,7 +31,8 @@
   justify-center cursor-pointer">
   <div
     class="w-full h-full flex items-center justify-center p-2 text-2xl
-    text-lb-primary-font hover:text-lb-primary-font-lighter">
+    text-lb-primary-font hover:text-lb-primary-font-lighter"
+    on:click={() => dispatch('showReservationForm')}>
     reserveer nu
   </div>
 </div>

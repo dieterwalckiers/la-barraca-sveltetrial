@@ -4,8 +4,11 @@
   import { onMount } from "svelte";
 
   import { rwdState } from "../../../stores/rwd";
-  import { carouselHeight } from "../../../stores/dims";
-  import { trailerCarouselIndex, requestedCarouselIndex } from "../../../stores/productionDisplayInfo";
+  import { carouselHeight, carouselWidth } from "../../../stores/dims";
+  import {
+    trailerCarouselIndex,
+    requestedCarouselIndex
+  } from "../../../stores/productionDisplayInfo";
   import ProductionImage from "./ProductionImage.svelte";
   import LbLogoBig from "../LbLogoBig/index.svelte";
   import CarouselNavigation from "./CarouselNavigation/index.svelte";
@@ -18,7 +21,7 @@
   $: console.log("prod", production);
   $: hasNarrowBorders = ["xs", "sm"].includes($rwdState);
 
-  $: trailerCarouselIndex.set(vimeoId ? 1 + (imageSrcs || []).length : -1)
+  $: trailerCarouselIndex.set(vimeoId ? 1 + (imageSrcs || []).length : -1);
   $: if ($requestedCarouselIndex !== -1) {
     controller.goTo($requestedCarouselIndex);
     requestedCarouselIndex.set(-1);
@@ -98,7 +101,7 @@
   }
 </style>
 
-<div class="production-carousel">
+<div class="production-carousel pl-12">
   <LbLogoBig />
   <div
     class="relative bg-black"
@@ -107,7 +110,11 @@
     <div
       class:border2-narrow={hasNarrowBorders}
       class:border2-wide={!hasNarrowBorders}>
-      <div class="carousel" bind:this={siema} bind:clientHeight={$carouselHeight}>
+      <div
+        class="carousel"
+        bind:this={siema}
+        bind:clientHeight={$carouselHeight}
+        bind:clientWidth={$carouselWidth}>
         <div>
           <ProductionImage src={mainImageSrc} />
         </div>
@@ -135,4 +142,3 @@
   </div>
 </div>
 
-<div style="height: 900px" />

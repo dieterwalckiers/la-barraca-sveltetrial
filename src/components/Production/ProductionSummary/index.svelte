@@ -1,7 +1,7 @@
 <script>
   import FromToInfo from "./FromToInfo.svelte";
   import CallToAction from "./CallToAction.svelte";
-  import { logoHeight } from "../../../stores/dims";
+  import { logoHeight, fillerHeight } from "../../../stores/dims";
   import { rwdState } from "../../../stores/rwd";
   import { carouselHeight } from "../../../stores/dims";
   import ReserveButton from "./ReserveButton.svelte";
@@ -14,7 +14,8 @@
   $: lastPerformance =
     performanceCalendarAvailable &&
     performanceCalendar[performanceCalendar.length - 1];
-  $: fillerHeight = $rwdState === "xs" ? 1 : $logoHeight;
+
+  export let isInvertedColors;
 </script>
 
 <style>
@@ -30,13 +31,22 @@
     overflow: auto;
     max-height: 160px;
   }
+
+  .is-inverted {
+    background-color: #4a1928;
+    color: #d1d1d1;
+  }
+  .is-inverted h1 {
+    color: #d1d1d1;
+  }
 </style>
 
 <div class="production-summary">
-  {#if !!fillerHeight}
-    <div style={`height: ${fillerHeight}px`} />
+  {#if !!$fillerHeight}
+    <div style={`height: ${$fillerHeight}px`} />
     <div
-      class="px-4 flex flex-col justify-between"
+      class="px-4 flex flex-col justify-between transition-colors duration-500"
+      class:is-inverted={isInvertedColors}
       style={`height: ${$carouselHeight ? `${$carouselHeight}px` : 'auto'}`}>
 
       <div>
@@ -57,7 +67,7 @@
         <CallToAction />
       </div>
       <div>
-        <ReserveButton />
+        <ReserveButton on:showReservationForm />
       </div>
     </div>
   {/if}
