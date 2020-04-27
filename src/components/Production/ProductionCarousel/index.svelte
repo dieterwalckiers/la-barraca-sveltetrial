@@ -4,19 +4,26 @@
   import { onMount } from "svelte";
 
   import { rwdState } from "../../../stores/rwd";
-  import { carouselHeight, carouselWidth } from "../../../stores/dims";
+  import {
+    carouselHeight,
+    carouselWidth,
+    fillerHeight
+  } from "../../../stores/dims";
   import {
     trailerCarouselIndex,
-    requestedCarouselIndex
+    requestedCarouselIndex,
+    isSecondaryMode
   } from "../../../stores/productionDisplayInfo";
   import ProductionImage from "./ProductionImage.svelte";
-  import LbLogoBig from "../LbLogoBig/index.svelte";
   import CarouselNavigation from "./CarouselNavigation/index.svelte";
 
   let siema;
   let controller;
 
   export let production;
+  let clazz;
+  export { clazz as class };
+
   const { mainImageSrc, imageSrcs, vimeoId } = production;
   $: console.log("prod", production);
   $: hasNarrowBorders = ["xs", "sm"].includes($rwdState);
@@ -54,6 +61,12 @@
 </script>
 
 <style>
+  .production-carousel {
+    transition: margin-right 0.5s;
+  }
+  .production-carousel-secondary {
+    margin-right: 6rem;
+  }
   .border1-wide:before {
     content: "";
     position: absolute;
@@ -101,8 +114,10 @@
   }
 </style>
 
-<div class="production-carousel pl-12">
-  <LbLogoBig />
+<div
+  class={`production-carousel ${clazz}`}
+  class:production-carousel-secondary={$isSecondaryMode}>
+  <div style={`height: ${$fillerHeight || 0}px`} />
   <div
     class="relative bg-black"
     class:border1-narrow={hasNarrowBorders}
@@ -141,4 +156,3 @@
       }} />
   </div>
 </div>
-

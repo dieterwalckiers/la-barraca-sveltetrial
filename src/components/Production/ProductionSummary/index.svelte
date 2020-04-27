@@ -1,9 +1,10 @@
 <script>
   import FromToInfo from "./FromToInfo.svelte";
   import CallToAction from "./CallToAction.svelte";
-  import { logoHeight, fillerHeight } from "../../../stores/dims";
+  import { fillerHeight } from "../../../stores/dims";
   import { rwdState } from "../../../stores/rwd";
   import { carouselHeight } from "../../../stores/dims";
+  import { isSecondaryMode } from "../../../stores/productionDisplayInfo";
   import ReserveButton from "./ReserveButton.svelte";
 
   export let production;
@@ -14,8 +15,6 @@
   $: lastPerformance =
     performanceCalendarAvailable &&
     performanceCalendar[performanceCalendar.length - 1];
-
-  export let isInvertedColors;
 </script>
 
 <style>
@@ -32,11 +31,12 @@
     max-height: 160px;
   }
 
-  .is-inverted {
+  .secondary-mode {
     background-color: #4a1928;
     color: #d1d1d1;
+    padding-top: 20px;
   }
-  .is-inverted h1 {
+  .secondary-mode h1 {
     color: #d1d1d1;
   }
 </style>
@@ -45,13 +45,13 @@
   {#if !!$fillerHeight}
     <div style={`height: ${$fillerHeight}px`} />
     <div
-      class="px-4 flex flex-col justify-between transition-colors duration-500"
-      class:is-inverted={isInvertedColors}
+      class="px-4 flex flex-col justify-between transition-all duration-500"
+      class:secondary-mode={$isSecondaryMode}
       style={`height: ${$carouselHeight ? `${$carouselHeight}px` : 'auto'}`}>
 
       <div>
 
-        <h1 class="uppercase text-5xl tracking-widest text-black mb-3">
+        <h1 class="uppercase text-5xl tracking-widest text-black mb-3 transition-colors duration-500">
           {title}
         </h1>
         {#if !!firstPerformance}
@@ -67,7 +67,9 @@
         <CallToAction />
       </div>
       <div>
-        <ReserveButton on:showReservationForm />
+        {#if !$isSecondaryMode}
+           <ReserveButton />
+        {/if}
       </div>
     </div>
   {/if}

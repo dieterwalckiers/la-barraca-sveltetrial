@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  const dispatch = createEventDispatcher();
+  import { isSecondaryMode } from "../../../stores/productionDisplayInfo"
 </script>
 
 <style>
@@ -32,7 +32,7 @@
   <div
     class="w-full h-full flex items-center justify-center p-2 text-2xl
     text-lb-primary-font hover:text-lb-primary-font-lighter"
-    on:click={() => dispatch('showReservationForm')}>
+    on:click={() => isSecondaryMode.set(true)}>
     reserveer nu
   </div>
 </div>

@@ -7,8 +7,8 @@
 
 <style>
   .siteWrapper {
-    max-width: 1200px;
-    margin: auto;
+    width: 100vw;
+    overflow: hidden;
   }
 </style>
 
