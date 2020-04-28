@@ -43,7 +43,7 @@
   </div>
 
   <div style={`width: ${carouselWidth}vw`}>
-    <ReservationForm class="mr-24" />
+    <ReservationForm class="mr-24" {production} />
   </div>
 
 </div>
