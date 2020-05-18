@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "sapper dev --no-hot & yarn watch:tailwind",
     "build": "yarn build:tailwind && sapper build",
-    "export": "sapper export",
+    "export": "yarn build:tailwind && sapper export",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
