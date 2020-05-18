@@ -1,7 +1,7 @@
 {
-  "name": "TODO",
+  "name": "la-barraca",
   "description": "TODO",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "sapper dev --no-hot & yarn watch:tailwind",
     "build": "yarn build:tailwind && sapper build",
