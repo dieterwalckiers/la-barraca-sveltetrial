@@ -7,4 +7,6 @@ const client = sanityClient({
   useCdn: true
 });
 
+console.log("using dataset", getConfig().sanity.dataset);
+
 export default client;
