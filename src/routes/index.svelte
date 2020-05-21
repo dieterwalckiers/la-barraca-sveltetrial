@@ -31,6 +31,7 @@
   import Production from "../components/Production/index.svelte";
   import LbLogoBig from "../components/LbLogoBig/index.svelte";
   export let season;
+  console.log("SEASON TO RENDER", season);
   const { productions } = season;
 </script>
 
