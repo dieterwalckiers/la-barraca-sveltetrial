@@ -1,0 +1,27 @@
+{
+  "name": "fauna-graphql",
+  "version": "1.0.0",
+  "description": "netlify functions:create - set up for fauna db + apollo graphql",
+  "main": "fauna-graphql.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "netlify",
+    "serverless",
+    "js",
+    "apollo",
+    "fauna"
+  ],
+  "author": "Netlify",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-client": "^2.6.10",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-link-http": "^1.5.17",
+    "apollo-link-context": "^1.0.20",
+    "graphql-tag": "^2.10.3",
+    "graphql": "^14.1.1",
+    "node-fetch": "^2.3.0"
+  }
+}

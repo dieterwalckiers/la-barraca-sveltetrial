@@ -1,0 +1,5 @@
+# sample netlify.toml
+[build]
+  command = "yarn export"
+  functions = "functions" # netlify dev uses this directory to scaffold and serve your functions
+  publish = "__sapper__/export"

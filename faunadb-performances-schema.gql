@@ -1,0 +1,22 @@
+# This file was used to define the schema in FaunaDB
+# To make changes; upload a revised schema to FaunaDB via its webadmin
+
+type Performance @collection(name: "performances") {
+  productionID: String!
+  timeID: String!
+  visitors: [Visitor] @relation
+}
+
+type Visitor @collection(name: "visitors") {
+  email: String!
+  name: String
+  remarks: String
+  quantity: Int!
+  owner: Performance!
+}
+
+type Query {
+  allPerformances: [Performance!]! @index(name: "all_performances")
+  allVisitors: [Visitor!]! @index(name: "all_visitors")
+  visitorsByEmail(email: String!): [Visitor!]
+}
