@@ -3,10 +3,10 @@ import { getConfig } from "./config";
 
 const client = sanityClient({
   projectId: "p3ezynln",
-  dataset: getConfig().sanity.dataset,
+  dataset: "development",
   useCdn: true
 });
 
-console.log("using dataset", getConfig().sanity.dataset);
+console.log("using dataset development");
 
 export default client;
