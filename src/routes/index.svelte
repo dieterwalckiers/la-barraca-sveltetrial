@@ -3,6 +3,7 @@
   import { normalizeSeason } from "../helpers/normalizing";
 
   export async function preload({ params, query }) {
+    console.log("preloading, using normalizeSeason fn of", normalizeSeason);
     try {
       const season = await client.fetch(`
         *[_type == "season"][0] {
