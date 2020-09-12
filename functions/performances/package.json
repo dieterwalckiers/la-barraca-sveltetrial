@@ -22,6 +22,6 @@
     "apollo-link-context": "^1.0.20",
     "graphql-tag": "^2.10.3",
     "graphql": "^14.1.1",
-    "node-fetch": "^2.3.0"
+    "node-fetch": "^2.6.1"
   }
 }
